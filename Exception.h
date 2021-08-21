@@ -1,0 +1,16 @@
+//
+// Created by Laura Davis on 21/08/2021.
+//
+
+#ifndef ADVANCEDPROGRAMMINGTASK2_EXCEPTION_H
+#define ADVANCEDPROGRAMMINGTASK2_EXCEPTION_H
+
+
+
+class Exception {
+
+};
+
+
+
+#endif //ADVANCEDPROGRAMMINGTASK2_EXCEPTION_H

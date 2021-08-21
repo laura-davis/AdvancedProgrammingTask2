@@ -3,14 +3,8 @@ project(AdvancedProgrammingTask2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(AdvancedProgrammingTask2
-        Client.h
-        Client.cpp
-        Server.h
-        Server.cpp
-        Comms.cpp
-        Comms.h
-        Exceptions.h
-        Exceptions.cpp
-        Toggle.h
-        Toggle.cpp)
+add_library(exception Exception.cpp)
+add_executable(client Client.cpp)
+add_executable(server Server.cpp)
+target_link_libraries(server exception)
+target_link_libraries(client exception)
