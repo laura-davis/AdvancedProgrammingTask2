@@ -13,8 +13,7 @@ using namespace std;
 int main() {
     int listening = socket(AF_INET, SOCK_STREAM, 0); //	Create socket using socket function
     if (listening == -1) { // If socket doesn't exist...
-        cerr << "Error creating socket" << endl; // ...Output error message
-        return -1; // ...and return error code
+        throw CannotCreateSocketException(); // ...Output error message
     }
 
     sockaddr_in hint{}; // Initialise hint from the server
@@ -23,13 +22,11 @@ int main() {
     inet_pton(AF_INET, "0.0.0.0", &hint.sin_addr); // Convert IP address to an array of integers
     bind(listening, (sockaddr *) &hint, sizeof(hint)); // Bind IP address to socket
     if (::bind(listening, (sockaddr *) &hint, sizeof(hint)) == -1) { // If unable to bind...
-        cerr << "Error binding to port" << endl; // ...Output error message
-        return -2; // ...and return error code
+        throw CannotBindToPortException(); // ...Output error message
     }
     listen(listening, SOMAXCONN); // Mark socket for listening
     if (listen(listening, SOMAXCONN) == -1) { // If unable to listen...
-        cerr << "Error listening to port" << endl; // ...Output error message
-        return -3; // ...and return error code
+        throw CannotListenToPortException(); // ...Output error message
     }
     sockaddr_in client{}; // Initialise client
     socklen_t clientSize = sizeof(client); // Get size of client
@@ -40,8 +37,7 @@ int main() {
     memset(svc, 0, NI_MAXSERV); // Clean up service memory
 
     if (clientSocket == -1) { // If unable to accept connection...
-        cerr << "Error connecting to client" << endl; // ...Output error message
-        return -4; // ...and return error code
+        throw CannotConnectToClientException(); // ...Output error message
     }
     if (getnameinfo((sockaddr *) &client, sizeof(client), host, NI_MAXHOST, svc, NI_MAXSERV, 0) == 0) { // If it is possible to get remote name
         cout << host << " connected on port " << svc << endl; // ...Output remote name
@@ -56,10 +52,10 @@ int main() {
 
     while (true) { // While buffer exists, wait for client to send data
         memset(buf, 0, 4096); // Clear buffer
-        int bytesRecv = recv(clientSocket, buf, 4096, 0); // Initialise bytesRecv variable, ready to receive data
+        long bytesRecv = recv(clientSocket, buf, 4096, 0); // Initialise bytesRecv variable, ready to receive data
         if (bytesRecv == -1) // If there is an error...
         {
-            cout << "Error receiving data / connection closed" << endl; // ...Output error message
+            cout << "Error receiving data or connection is closed" << endl; // ...Output error message
             break;
         }
         if (bytesRecv == 0) { // If no data is received

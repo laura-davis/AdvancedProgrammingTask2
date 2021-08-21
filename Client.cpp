@@ -1,11 +1,5 @@
 #include "Client.h"
-#include <iostream>
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <cstring>
-#include <string>
+#include "Exception.h"
 
 using namespace std;
 
@@ -13,8 +7,7 @@ int main() {
     // Create a socket
     int sock = socket(AF_INET, SOCK_STREAM, 0); //	Create socket using socket function
     if (sock == -1) { // If unable to create socket...
-        cerr << "Error creating socket" << endl; // ...Output error message
-        return 1; // ...and return error code
+        throw CannotCreateSocketException(); // ...Output error message
     }
     int port = 54000; // Port specified in client code
     string ipAddress = "127.0.0.1"; // Local IP address
@@ -24,8 +17,7 @@ int main() {
     inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr); // Convert IP address to an array of integers
     int connectRes = connect(sock, (sockaddr *) &hint, sizeof(hint)); // Connect to remote machine
     if (connectRes == -1) { // If unable to connect...
-        cerr << "Error connecting to server" << endl; // ...Output error message
-        return 2; // ...and return error code
+        throw CannotConnectToServerException(); // ...Output error message
     }
     char buf[4096]; // Initialise buffer
     string userInput; // Initialise string for capturing user input
