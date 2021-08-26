@@ -3,13 +3,5 @@ project(AdvancedProgrammingTask2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(AdvancedProgrammingTask2
-        Client.cpp
-        Client.h
-        Comms.cpp
-        Comms.h
-        Exception.h
-        main.cpp
-        Server.cpp
-        Server.h
-        Toggle.h)
+add_subdirectory(Client)
+add_subdirectory(Server)

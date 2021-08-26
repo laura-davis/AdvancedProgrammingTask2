@@ -117,137 +117,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named AdvancedProgrammingTask2
+# Target rules for targets named Client
 
 # Build rule for target.
-AdvancedProgrammingTask2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AdvancedProgrammingTask2
-.PHONY : AdvancedProgrammingTask2
+Client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Client
+.PHONY : Client
 
 # fast build rule for target.
-AdvancedProgrammingTask2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/build
-.PHONY : AdvancedProgrammingTask2/fast
+Client/fast:
+	$(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/build
+.PHONY : Client/fast
 
-Client.o: Client.cpp.o
-.PHONY : Client.o
+#=============================================================================
+# Target rules for targets named Server
 
-# target to build an object file
-Client.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Client.cpp.o
-.PHONY : Client.cpp.o
+# Build rule for target.
+Server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Server
+.PHONY : Server
 
-Client.i: Client.cpp.i
-.PHONY : Client.i
-
-# target to preprocess a source file
-Client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Client.cpp.i
-.PHONY : Client.cpp.i
-
-Client.s: Client.cpp.s
-.PHONY : Client.s
-
-# target to generate assembly for a file
-Client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Client.cpp.s
-.PHONY : Client.cpp.s
-
-Comms.o: Comms.cpp.o
-.PHONY : Comms.o
-
-# target to build an object file
-Comms.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Comms.cpp.o
-.PHONY : Comms.cpp.o
-
-Comms.i: Comms.cpp.i
-.PHONY : Comms.i
-
-# target to preprocess a source file
-Comms.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Comms.cpp.i
-.PHONY : Comms.cpp.i
-
-Comms.s: Comms.cpp.s
-.PHONY : Comms.s
-
-# target to generate assembly for a file
-Comms.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Comms.cpp.s
-.PHONY : Comms.cpp.s
-
-Exceptions.o: Exceptions.cpp.o
-.PHONY : Exceptions.o
-
-# target to build an object file
-Exceptions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Exceptions.cpp.o
-.PHONY : Exceptions.cpp.o
-
-Exceptions.i: Exceptions.cpp.i
-.PHONY : Exceptions.i
-
-# target to preprocess a source file
-Exceptions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Exceptions.cpp.i
-.PHONY : Exceptions.cpp.i
-
-Exceptions.s: Exceptions.cpp.s
-.PHONY : Exceptions.s
-
-# target to generate assembly for a file
-Exceptions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Exceptions.cpp.s
-.PHONY : Exceptions.cpp.s
-
-Server.o: Server.cpp.o
-.PHONY : Server.o
-
-# target to build an object file
-Server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Server.cpp.o
-.PHONY : Server.cpp.o
-
-Server.i: Server.cpp.i
-.PHONY : Server.i
-
-# target to preprocess a source file
-Server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Server.cpp.i
-.PHONY : Server.cpp.i
-
-Server.s: Server.cpp.s
-.PHONY : Server.s
-
-# target to generate assembly for a file
-Server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Server.cpp.s
-.PHONY : Server.cpp.s
-
-Toggle.o: Toggle.cpp.o
-.PHONY : Toggle.o
-
-# target to build an object file
-Toggle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Toggle.cpp.o
-.PHONY : Toggle.cpp.o
-
-Toggle.i: Toggle.cpp.i
-.PHONY : Toggle.i
-
-# target to preprocess a source file
-Toggle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Toggle.cpp.i
-.PHONY : Toggle.cpp.i
-
-Toggle.s: Toggle.cpp.s
-.PHONY : Toggle.s
-
-# target to generate assembly for a file
-Toggle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/Toggle.cpp.s
-.PHONY : Toggle.cpp.s
+# fast build rule for target.
+Server/fast:
+	$(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/build
+.PHONY : Server/fast
 
 # Help Target
 help:
@@ -257,22 +150,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... AdvancedProgrammingTask2"
-	@echo "... Client.o"
-	@echo "... Client.i"
-	@echo "... Client.s"
-	@echo "... Comms.o"
-	@echo "... Comms.i"
-	@echo "... Comms.s"
-	@echo "... Exceptions.o"
-	@echo "... Exceptions.i"
-	@echo "... Exceptions.s"
-	@echo "... Server.o"
-	@echo "... Server.i"
-	@echo "... Server.s"
-	@echo "... Toggle.o"
-	@echo "... Toggle.i"
-	@echo "... Toggle.s"
+	@echo "... Client"
+	@echo "... Server"
 .PHONY : help
 
 

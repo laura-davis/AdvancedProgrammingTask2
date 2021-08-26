@@ -1,3 +1,8 @@
 /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles/AdvancedProgrammingTask2.dir
+/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client/CMakeFiles/rebuild_cache.dir
+/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client/CMakeFiles/edit_cache.dir
+/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client/CMakeFiles/Client.dir
+/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server/CMakeFiles/rebuild_cache.dir
+/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server/CMakeFiles/edit_cache.dir
+/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server/CMakeFiles/Server.dir

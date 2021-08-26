@@ -63,42 +63,101 @@ CMAKE_BINARY_DIR = /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-de
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/AdvancedProgrammingTask2.dir/all
+all: Client/all
+all: Server/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: Client/preinstall
+preinstall: Server/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/AdvancedProgrammingTask2.dir/clean
+clean: Client/clean
+clean: Server/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/AdvancedProgrammingTask2.dir
+# Directory level rules for directory Client
+
+# Recursive "all" directory target.
+Client/all: Client/CMakeFiles/Client.dir/all
+.PHONY : Client/all
+
+# Recursive "preinstall" directory target.
+Client/preinstall:
+.PHONY : Client/preinstall
+
+# Recursive "clean" directory target.
+Client/clean: Client/CMakeFiles/Client.dir/clean
+.PHONY : Client/clean
+
+#=============================================================================
+# Directory level rules for directory Server
+
+# Recursive "all" directory target.
+Server/all: Server/CMakeFiles/Server.dir/all
+.PHONY : Server/all
+
+# Recursive "preinstall" directory target.
+Server/preinstall:
+.PHONY : Server/preinstall
+
+# Recursive "clean" directory target.
+Server/clean: Server/CMakeFiles/Server.dir/clean
+.PHONY : Server/clean
+
+#=============================================================================
+# Target rules for target Client/CMakeFiles/Client.dir
 
 # All Build rule for target.
-CMakeFiles/AdvancedProgrammingTask2.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target AdvancedProgrammingTask2"
-.PHONY : CMakeFiles/AdvancedProgrammingTask2.dir/all
+Client/CMakeFiles/Client.dir/all:
+	$(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/depend
+	$(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target Client"
+.PHONY : Client/CMakeFiles/Client.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/AdvancedProgrammingTask2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/AdvancedProgrammingTask2.dir/all
+Client/CMakeFiles/Client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Client/CMakeFiles/Client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/AdvancedProgrammingTask2.dir/rule
+.PHONY : Client/CMakeFiles/Client.dir/rule
 
 # Convenience name for target.
-AdvancedProgrammingTask2: CMakeFiles/AdvancedProgrammingTask2.dir/rule
-.PHONY : AdvancedProgrammingTask2
+Client: Client/CMakeFiles/Client.dir/rule
+.PHONY : Client
 
 # clean rule for target.
-CMakeFiles/AdvancedProgrammingTask2.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AdvancedProgrammingTask2.dir/build.make CMakeFiles/AdvancedProgrammingTask2.dir/clean
-.PHONY : CMakeFiles/AdvancedProgrammingTask2.dir/clean
+Client/CMakeFiles/Client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/clean
+.PHONY : Client/CMakeFiles/Client.dir/clean
+
+#=============================================================================
+# Target rules for target Server/CMakeFiles/Server.dir
+
+# All Build rule for target.
+Server/CMakeFiles/Server.dir/all:
+	$(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/depend
+	$(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=6,7,8,9,10 "Built target Server"
+.PHONY : Server/CMakeFiles/Server.dir/all
+
+# Build rule for subdir invocation for target.
+Server/CMakeFiles/Server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Server/CMakeFiles/Server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles 0
+.PHONY : Server/CMakeFiles/Server.dir/rule
+
+# Convenience name for target.
+Server: Server/CMakeFiles/Server.dir/rule
+.PHONY : Server
+
+# clean rule for target.
+Server/CMakeFiles/Server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/clean
+.PHONY : Server/CMakeFiles/Server.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
