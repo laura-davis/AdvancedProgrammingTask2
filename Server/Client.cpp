@@ -1,10 +1,9 @@
 #include "Client.h"
-#include "Exception.h"
 
-string Client::SendMessage() {
-    input = GetUserInput();
+std::string Client::SendMessage() {
+    std::string input = GetUserInput();
     try {
-        if ((send(sock, input.c_str(), input.size() + 1, 0)) == ERROR) { // Send to client; add 1 for trailing 0
+        if ((send(socketRef, input.c_str(), input.size() + 1, 0)) == ERROR) { // Send to client; add 1 for trailing 0
             throw SendMessageException();
         }
         return input;
@@ -15,22 +14,33 @@ string Client::SendMessage() {
     }
 }
 
-void Client::ReceiveMessage(char *buf) {
+void Client::ReceiveMessage(char *buf, int size) {
     try {
-        if ((recv(sock, buf, 200, 0)) == ERROR) {
+        if ((recv(socketRef, buf, size, 0)) == ERROR) {
             throw ReceiveMessageException();
         }
-        cout << "Server: " << endl;
+        std::cout << "Server: " << std::endl;
     }
     catch (ReceiveMessageException &e) {
         PrintError(e.what());
     }
 }
 
-// TODO - revisit this
+void Client::OpenSocket() {
+    try {
+        socketRef = socket(AF_INET, SOCK_STREAM, 0);
+        std::cout << "Client socket has been created" << std::endl;
+        server_addr.sin_family = AF_INET;
+        server_addr.sin_port = htons(port);
+    }
+    catch (OpenSocketException &e) {
+        PrintError(e.what());
+    }
+}
+
 void Client::ConnectSocket() {
     try {
-        if (connect(sock, (struct sockaddr *) &hint, sizeof(hint)) == ERROR) {
+        if (connect(socketRef, (struct sockaddr *) &server_addr, sizeof(server_addr)) == ERROR) {
             throw ConnectingToSocketException();
         }
     }
@@ -41,17 +51,19 @@ void Client::ConnectSocket() {
 
 void Client::StartChat() {
     do {
-        input = SendMessage();
+        std::string input = SendMessage();
         char textInput[input.length() + 1];
         strcpy(textInput, input.c_str());
         if(EndChat(textInput)) {
         CloseSocket();
+        break;
         }
-        char buf[4096];
-        ReceiveMessage(buf);
-        cout << buf << endl;
+        char buf[BUF_SIZE];
+        ReceiveMessage(buf, BUF_SIZE);
+        std::cout << buf << std::endl;
         if (EndChat(textInput)) {
             CloseSocket();
+            break;
         }
     } while(true);
 }

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Toggle.h"
 #include "Client.h"
 #include "Server.h"
@@ -6,8 +5,8 @@
 using namespace std;
 
 int main() {
-    cout << "Starting chat application" << endl;
-    cout << "Type 'QUIT' at any time to terminate the connection between the client and the server" << endl << endl;
+    std::cout << "Starting chat application; you are the Client..." << std::endl;
+    std::cout << "Type 'QUIT' at any time to terminate the connection between the Client and the Server" << std::endl;
     if (SERVER) {
         try {
             auto *server = new Server();
@@ -18,18 +17,17 @@ int main() {
             server->StartChat();
         }
         catch (...) {
-            cout << "An error occurred" << endl;
+            std::cout << "An error occurred" << std::endl;
         }
     } else {
         try {
             auto *client = new Client();
-            client->SetUpHint();
             client->OpenSocket();
             client->ConnectSocket();
             client->StartChat();
         }
         catch (...) {
-            cout << "An error occurred" << endl;
+            std::cout << "An error occurred" << std::endl;
         }
     }
 }
