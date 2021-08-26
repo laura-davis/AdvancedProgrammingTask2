@@ -1,5 +1,3 @@
 #pragma once
 
-class Toggle {
-
-};
+#define SERVER true

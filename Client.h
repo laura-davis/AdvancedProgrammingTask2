@@ -13,4 +13,11 @@
 using namespace std;
 
 class Client : public Comms {
+private:
+    string SendMessage() override;
+    void ReceiveMessage(char* buf) override;
+public:
+    Client()= default;
+    void ConnectSocket();
+    void StartChat() override;
 };

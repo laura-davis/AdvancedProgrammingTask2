@@ -1,42 +1,57 @@
 #include "Client.h"
 #include "Exception.h"
 
-using namespace std;
+string Client::SendMessage() {
+    input = GetUserInput();
+    try {
+        if ((send(sock, input.c_str(), input.size() + 1, 0)) == ERROR) { // Send to client; add 1 for trailing 0
+            throw SendMessageException();
+        }
+        return input;
+    }
+    catch (SendMessageException &e) {
+        PrintError(e.what());
+        return "Error";
+    }
+}
 
-int main() {
-    // Create a socket
-    int sock = socket(AF_INET, SOCK_STREAM, 0); //	Create socket using socket function
-    if (sock == -1) { // If unable to create socket...
-        throw CannotCreateSocketException(); // ...Output error message
-    }
-    int port = 54000; // Port specified in client code
-    string ipAddress = "127.0.0.1"; // Local IP address
-    sockaddr_in hint{}; // Initialise hint from the client
-    hint.sin_family = AF_INET; // Use IPv4 domain
-    hint.sin_port = htons(port); // Convert port number from host to network short
-    inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr); // Convert IP address to an array of integers
-    int connectRes = connect(sock, (sockaddr *) &hint, sizeof(hint)); // Connect to remote machine
-    if (connectRes == -1) { // If unable to connect...
-        throw CannotConnectToServerException(); // ...Output error message
-    }
-    char buf[4096]; // Initialise buffer
-    string userInput; // Initialise string for capturing user input
-    do { // "Endless" loop
-        cout << "> "; // Prompt user for input
-        getline(cin, userInput); // Capture entire line of text
-        long sendRes = send(sock, userInput.c_str(), userInput.size() + 1, 0); // Send to client; add 1 for trailing 0
-        if (sendRes == -1) { // If unable to send to server...
-            cerr << "Error sending to server" << endl; // ...Output error message
-            continue; // ...and go back to try again
+void Client::ReceiveMessage(char *buf) {
+    try {
+        if ((recv(sock, buf, 200, 0)) == ERROR) {
+            throw ReceiveMessageException();
         }
-        memset(buf, 0, 4096); // Clear buffer and wait for response
-        if (strcmp(userInput.c_str(), "QUIT") == 0) { // If user enters "QUIT"...
-            cout << "Connection between client and server terminated" << endl; // ...Output message
-            return 0; // ...and terminate programme
+        cout << "Server: " << endl;
+    }
+    catch (ReceiveMessageException &e) {
+        PrintError(e.what());
+    }
+}
+
+// TODO - revisit this
+void Client::ConnectSocket() {
+    try {
+        if (connect(sock, (struct sockaddr *) &hint, sizeof(hint)) == ERROR) {
+            throw ConnectingToSocketException();
         }
-        long bytesReceived = recv(sock, buf, 4096, 0); // Initialise bytesReceived variable, ready to receive data
-        cout << "Server: " << string(buf, bytesReceived) << "\r\n"; // Display response
-    } while (true);
-    close(sock); // Close socket
-    return 0;
+    }
+    catch (ConnectingToSocketException &e) {
+        PrintError(e.what());
+    }
+}
+
+void Client::StartChat() {
+    do {
+        input = SendMessage();
+        char textInput[input.length() + 1];
+        strcpy(textInput, input.c_str());
+        if(EndChat(textInput)) {
+        CloseSocket();
+        }
+        char buf[4096];
+        ReceiveMessage(buf);
+        cout << buf << endl;
+        if (EndChat(textInput)) {
+            CloseSocket();
+        }
+    } while(true);
 }

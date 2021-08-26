@@ -4,44 +4,80 @@
 
 using namespace std;
 
-#pragma once
-
-#include <exception>
-#include <string>
-
-using namespace std;
-
-class CannotCreateSocketException : public exception {
+class OpenSocketException : public exception {
 public:
     const char *what() const noexcept override {
-        return "Error creating socket";
+        return "Error opening socket";
     }
 };
 
-class CannotConnectToServerException : public exception {
+class CloseSocketException : public exception {
 public:
     const char *what() const noexcept override {
-        return "Error connecting to server";
+        return "Error closing socket";
     }
 };
 
-class CannotBindToPortException : public exception {
+class GetUserInputException : public exception {
 public:
     const char *what() const noexcept override {
-        return "Error binding to port";
+        return "Error getting user input";
     }
 };
 
-class CannotListenToPortException : public exception {
+class SendMessageException : public exception {
 public:
     const char *what() const noexcept override {
-        return "Error listening to port";
+        return "Error sending message";
     }
 };
 
-class CannotConnectToClientException : public exception {
+class ReceiveMessageException : public exception {
 public:
     const char *what() const noexcept override {
-        return "Error connecting to client";
+        return "Error receiving message";
+    }
+};
+
+//
+//class CannotStartChatException : public exception {
+//public:
+//    const char *what() const noexcept override {
+//        return "Error starting chat";
+//    }
+//};
+
+class ConnectingToSocketException : public exception {
+public:
+    const char *what() const noexcept override {
+        return "Error connecting to socket";
+    }
+};
+
+//class EndChatException : public exception {
+//public:
+//    const char *what() const noexcept override {
+//        return "Error ending chat";
+//    }
+//};
+
+class BindingToSocketException : public exception {
+public:
+    const char *what() const noexcept override {
+        return "Error binding to socket";
+    }
+};
+
+class ListeningToSocketException : public exception {
+public:
+    const char *what() const noexcept override {
+        return "Error listening to socket";
+    }
+};
+
+class AcceptingSocketException : public exception {
+public:
+    const char *what() const noexcept override {
+        return "Error accepting socket";
     }
 };
