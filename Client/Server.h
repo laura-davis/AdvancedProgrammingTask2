@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Comms.h"
 
 class Server : public Comms {
@@ -6,13 +7,21 @@ private:
     int clientSock{};
     sockaddr_in client{};
     socklen_t clientSockLength{};
+
     string SendMessage() override;
-    void ReceiveMessage(char* buf, int size) override;
+
+    void ReceiveMessage(char *buf, int size) override;
+
 public:
-    Server()= default;
+    Server() = default;
+
     void OpenSocket() override;
+
     void BindToSocket();
+
     void ListenToSocket();
+
     void AcceptSocket();
+
     void StartChat() override;
 };

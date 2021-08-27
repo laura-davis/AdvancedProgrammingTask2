@@ -50,6 +50,7 @@ void Server::BindToSocket() {
     }
 }
 
+
 void Server::ListenToSocket() {
     try {
         if (listen(sock, SOMAXCONN) == ERROR) {

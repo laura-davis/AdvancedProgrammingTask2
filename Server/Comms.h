@@ -1,6 +1,3 @@
-// TODO - add notes everywhere
-// TODO - complete readme file
-
 #pragma once
 
 #include <iostream>
@@ -16,15 +13,23 @@ protected:
     int port = 54000;
     int sock{};
     struct sockaddr_in server_addr{};
-    string GetUserInput();
+
+    static string GetUserInput();
+
     virtual string SendMessage() = 0;
+
     virtual void ReceiveMessage(char *buf, int size) = 0;
+
     static void PrintError(const string &error);
 
 public:
     Comms() = default;
+
     virtual void OpenSocket() = 0;
+
     void CloseSocket() const;
+
     virtual void StartChat() = 0;
+
     static bool EndChat(char *message);
 };

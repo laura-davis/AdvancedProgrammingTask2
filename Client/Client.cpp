@@ -54,9 +54,9 @@ void Client::StartChat() {
         string input = SendMessage();
         char textInput[input.length() + 1];
         strcpy(textInput, input.c_str());
-        if(EndChat(textInput)) {
-        CloseSocket();
-        break;
+        if (EndChat(textInput)) {
+            CloseSocket();
+            break;
         }
         char buf[BUF_SIZE];
         ReceiveMessage(buf, BUF_SIZE);
@@ -65,5 +65,5 @@ void Client::StartChat() {
             CloseSocket();
             break;
         }
-    } while(true);
+    } while (true);
 }
