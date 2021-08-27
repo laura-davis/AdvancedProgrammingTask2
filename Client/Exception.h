@@ -39,27 +39,12 @@ public:
     }
 };
 
-//
-//class CannotStartChatException : public exception {
-//public:
-//    const char *what() const noexcept override {
-//        return "Error starting chat";
-//    }
-//};
-
 class ConnectingToSocketException : public exception {
 public:
     const char *what() const noexcept override {
         return "Error connecting to socket";
     }
 };
-
-//class EndChatException : public exception {
-//public:
-//    const char *what() const noexcept override {
-//        return "Error ending chat";
-//    }
-//};
 
 class BindingToSocketException : public exception {
 public:

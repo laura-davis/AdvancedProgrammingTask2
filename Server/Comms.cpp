@@ -1,14 +1,14 @@
 #include "Comms.h"
 
 void Comms::PrintError(const string &error) {
-    std::cout << error << std::endl;
+    cout << error << endl;
 }
 
-std::string Comms::GetUserInput() {
-    std::string userInput; // Initialise string for capturing user input
-    std::cout << "> "; // Prompt user for input
+string Comms::GetUserInput() {
+    string userInput; // Initialise string for capturing user input
+    cout << "> "; // Prompt user for input
     try {
-        std::getline(std::cin, userInput); // Capture entire line of text and assign it to variable
+        getline(cin, userInput); // Capture entire line of text and assign it to variable
         return userInput; // Return user input
     }
     catch (GetUserInputException &e) {
@@ -20,7 +20,7 @@ std::string Comms::GetUserInput() {
 void Comms::CloseSocket() const {
     try {
         close(port); // Close socket
-        std::cout << "Connection between client and server terminated" << std::endl;
+        cout << "Connection between client and server terminated" << endl;
     }
     catch (CloseSocketException &e) {
         PrintError(e.what());

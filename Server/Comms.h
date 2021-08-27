@@ -9,17 +9,15 @@
 #include <netdb.h>
 #include "Exception.h"
 
-using namespace std;
-
 class Comms {
 protected:
     int ERROR = -1;
     int BUF_SIZE = 200;
     int port = 54000;
-    int socketRef{};
+    int sock{};
     struct sockaddr_in server_addr{};
-    std::string GetUserInput();
-    virtual std::string SendMessage() = 0;
+    string GetUserInput();
+    virtual string SendMessage() = 0;
     virtual void ReceiveMessage(char *buf, int size) = 0;
     static void PrintError(const string &error);
 

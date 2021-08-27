@@ -2,11 +2,9 @@
 #include "Client.h"
 #include "Server.h"
 
-using namespace std;
-
 int main() {
-    std::cout << "Starting chat application; you are the Client..." << std::endl;
-    std::cout << "Type 'QUIT' at any time to terminate the connection between the Client and the Server" << std::endl;
+    cout << "Starting chat application; you are the Client..." << endl;
+    cout << "Type 'QUIT' at any time to terminate the connection between the Client and the Server" << endl;
     if (SERVER) {
         try {
             auto *server = new Server();
@@ -17,7 +15,7 @@ int main() {
             server->StartChat();
         }
         catch (...) {
-            std::cout << "An error occurred" << std::endl;
+            cout << "An error occurred" << endl;
         }
     } else {
         try {
@@ -27,7 +25,7 @@ int main() {
             client->StartChat();
         }
         catch (...) {
-            std::cout << "An error occurred" << std::endl;
+            cout << "An error occurred" << endl;
         }
     }
 }

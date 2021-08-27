@@ -1,9 +1,9 @@
 #include "Client.h"
 
-std::string Client::SendMessage() {
-    std::string input = GetUserInput();
+string Client::SendMessage() {
+    string input = GetUserInput();
     try {
-        if ((send(socketRef, input.c_str(), input.size() + 1, 0)) == ERROR) { // Send to client; add 1 for trailing 0
+        if ((send(sock, input.c_str(), input.size() + 1, 0)) == ERROR) { // Send to client; add 1 for trailing 0
             throw SendMessageException();
         }
         return input;
@@ -16,10 +16,10 @@ std::string Client::SendMessage() {
 
 void Client::ReceiveMessage(char *buf, int size) {
     try {
-        if ((recv(socketRef, buf, size, 0)) == ERROR) {
+        if ((recv(sock, buf, size, 0)) == ERROR) {
             throw ReceiveMessageException();
         }
-        std::cout << "Server: " << std::endl;
+        cout << "Server: " << endl;
     }
     catch (ReceiveMessageException &e) {
         PrintError(e.what());
@@ -28,8 +28,8 @@ void Client::ReceiveMessage(char *buf, int size) {
 
 void Client::OpenSocket() {
     try {
-        socketRef = socket(AF_INET, SOCK_STREAM, 0);
-        std::cout << "Client socket has been created" << std::endl;
+        sock = socket(AF_INET, SOCK_STREAM, 0);
+        cout << "Client socket has been created" << endl;
         server_addr.sin_family = AF_INET;
         server_addr.sin_port = htons(port);
     }
@@ -40,7 +40,7 @@ void Client::OpenSocket() {
 
 void Client::ConnectSocket() {
     try {
-        if (connect(socketRef, (struct sockaddr *) &server_addr, sizeof(server_addr)) == ERROR) {
+        if (connect(sock, (struct sockaddr *) &server_addr, sizeof(server_addr)) == ERROR) {
             throw ConnectingToSocketException();
         }
     }
@@ -51,7 +51,7 @@ void Client::ConnectSocket() {
 
 void Client::StartChat() {
     do {
-        std::string input = SendMessage();
+        string input = SendMessage();
         char textInput[input.length() + 1];
         strcpy(textInput, input.c_str());
         if(EndChat(textInput)) {
@@ -60,7 +60,7 @@ void Client::StartChat() {
         }
         char buf[BUF_SIZE];
         ReceiveMessage(buf, BUF_SIZE);
-        std::cout << buf << std::endl;
+        cout << buf << endl;
         if (EndChat(textInput)) {
             CloseSocket();
             break;
