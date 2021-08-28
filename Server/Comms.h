@@ -11,11 +11,11 @@ using namespace std;
 
 class Comms {
 protected:
-    int socketRef;
-    struct sockaddr_in socketAddress;
+    int serverSocket{};
+    struct sockaddr_in socketAddress{};
     int ERROR = -1;
     int PORT = 54000;
-    int BUFFER_SIZE = 1024;
+    int BUF_SIZE = 1024;
 public:
     Comms() = default;
     void OpenSocket();

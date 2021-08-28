@@ -15,7 +15,6 @@ int main() {
         }
         catch (...) {
             cout << "An error occurred" << endl;
-            exit(5);
         }
     } else {
         try {

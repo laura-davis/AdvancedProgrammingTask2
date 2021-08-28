@@ -6,28 +6,25 @@ Client::Client() {
 }
 
 void Client::ConnectSocket() {
-    if (connect(socketRef, (struct sockaddr *) &socketAddress, sizeof(socketAddress)) == ERROR) {
+    if (connect(serverSocket, (struct sockaddr *) &socketAddress, sizeof(socketAddress)) == ERROR) {
         cout << "Error connecting to socket" << endl;
-        exit(2);
     }
     cout << "Connected via port number: " << PORT << endl;
 }
 
 string Client::SendMessage() {
     string input = GetInput();
-    if (send(socketRef, input.c_str(), input.size() + 1, 0) == ERROR) {
+    if (send(serverSocket, input.c_str(), input.size() + 1, 0) == ERROR) {
         cerr << "Error sending message" << endl;
-        exit(3);
     }
     return input;
 }
 
-void Client::ReceiveMessage(char *buffer, int size) {
-    if (recv(socketRef, buffer, size, 0) == ERROR) {
+void Client::ReceiveMessage(char *buf, int size) {
+    if (recv(serverSocket, buf, size, 0) == ERROR) {
         cout << "Error receiving message" << endl;
-        exit(4);
     } else {
-        cout << "Server: " << endl;
+        cout << "Server: ";
     }
 }
 
@@ -40,10 +37,10 @@ void Client::StartChat() {
             EndChat();
             break;
         }
-        char buffer[BUFFER_SIZE];
-        ReceiveMessage(buffer, BUFFER_SIZE);
-        cout << buffer << endl;
-        if (Quit(buffer)) {
+        char buf[BUF_SIZE];
+        ReceiveMessage(buf, BUF_SIZE);
+        cout << buf << endl;
+        if (Quit(buf)) {
             EndChat();
             break;
         }

@@ -6,6 +6,6 @@ public:
     Client();
     void ConnectSocket();
     string SendMessage() override;
-    void ReceiveMessage(char* buffer, int size) override;
+    void ReceiveMessage(char* buf, int size) override;
     void StartChat() override;
 };

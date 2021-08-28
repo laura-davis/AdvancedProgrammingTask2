@@ -4,11 +4,11 @@
 
 class Server : public Comms {
 protected:
-    int clientSocketRef;
+    int clientSocket{};
 public:
     Server();
     string SendMessage() override;
-    void ReceiveMessage(char *buffer, int size) override;
+    void ReceiveMessage(char *buf, int size) override;
     void BindSocket();
     void ListenSocket();
     void AcceptSocket();

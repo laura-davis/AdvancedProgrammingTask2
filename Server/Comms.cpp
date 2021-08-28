@@ -1,27 +1,19 @@
 #include "Comms.h"
 
-//void Comms::OpenSocket() {
-//    if((socketRef = socket(AF_INET, SOCK_STREAM, 0) == ERROR)) {
-//        cout << "Error establishing socket" << endl;
-//    }
-//    cout << "Socket has been created" << endl;
-//}
-
 void Comms::OpenSocket() {
-    socketRef = socket(AF_INET, SOCK_STREAM, 0);
-    if (socketRef == -1) {
+    serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+    if (serverSocket == ERROR) {
         cout << "error" << endl;
-        exit(1);
     }
 }
 
 void Comms::CloseSocket() const {
-    close(socketRef);
+    close(serverSocket);
 }
 
 string Comms::GetInput() {
     string input;
-    cout << "Your message: " << endl;
+    cout << "Your message: ";
     getline(cin, input);
     return input;
 }
