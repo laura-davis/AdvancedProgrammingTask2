@@ -6,3 +6,9 @@ To run the application:
 5) The process can be terminated by entering "QUIT" in to the console at any time.
 
 The Client and Server can be toggled by amending the Toggle.h files under Client and Server directories (by default, for testing purposes, SERVER is defined as false in the Client directory, and true in the Server directory).
+
+The output should look something like the below:
+
+![Screenshot of Server console output](Screenshot1.png)
+
+![Screenshot of Client console output](Screenshot2.png)
