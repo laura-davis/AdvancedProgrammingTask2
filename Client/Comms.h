@@ -1,35 +1,29 @@
 #pragma once
-
 #include <iostream>
-#include <unistd.h>
+#include <cstring>
+#include <sys/types.h>
 #include <sys/socket.h>
-#include <netdb.h>
-#include "Exception.h"
+#include <netinet/in.h>
+#include <cstdlib>
+#include <unistd.h>
+
+using namespace std;
 
 class Comms {
 protected:
+    int socketRef;
+    struct sockaddr_in socketAddress;
     int ERROR = -1;
-    int BUF_SIZE = 200;
-    int port = 54000;
-    int sock{};
-    struct sockaddr_in server_addr{};
-
-    static string GetUserInput();
-
-    virtual string SendMessage() = 0;
-
-    virtual void ReceiveMessage(char *buf, int size) = 0;
-
-    static void PrintError(const string &error);
-
+    int PORT = 54000;
+    int BUFFER_SIZE = 1024;
 public:
     Comms() = default;
-
-    virtual void OpenSocket() = 0;
-
+    void OpenSocket();
     void CloseSocket() const;
-
+    static string GetInput();
+    virtual string SendMessage() = 0;
+    virtual void ReceiveMessage(char* buffer, int size) = 0;
     virtual void StartChat() = 0;
-
-    static bool EndChat(char *message);
+    static void EndChat();
+    static bool Quit(char* message);
 };

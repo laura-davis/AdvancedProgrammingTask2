@@ -1,27 +1,16 @@
 #pragma once
-
 #include "Comms.h"
+#include <arpa/inet.h>
 
 class Server : public Comms {
-private:
-    int clientSock{};
-    sockaddr_in client{};
-    socklen_t clientSockLength{};
-
-    string SendMessage() override;
-
-    void ReceiveMessage(char *buf, int size) override;
-
+protected:
+    int clientSocketRef;
 public:
-    Server() = default;
-
-    void OpenSocket() override;
-
-    void BindToSocket();
-
-    void ListenToSocket();
-
+    Server();
+    string SendMessage() override;
+    void ReceiveMessage(char *buffer, int size) override;
+    void BindSocket();
+    void ListenSocket();
     void AcceptSocket();
-
     void StartChat() override;
 };

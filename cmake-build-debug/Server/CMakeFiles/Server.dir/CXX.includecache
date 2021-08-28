@@ -21,19 +21,17 @@ Comms.h
 /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.h
 iostream
 -
-unistd.h
+cstring
+-
+sys/types.h
 -
 sys/socket.h
 -
-netdb.h
+netinet/in.h
 -
-Exception.h
-/Users/lda49/Projects/AdvancedProgrammingTask2/Server/Exception.h
-
-/Users/lda49/Projects/AdvancedProgrammingTask2/Server/Exception.h
-exception
+cstdlib
 -
-string
+unistd.h
 -
 
 /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Server.cpp
@@ -43,6 +41,8 @@ Server.h
 /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Server.h
 Comms.h
 /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.h
+arpa/inet.h
+-
 
 /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Toggle.h
 

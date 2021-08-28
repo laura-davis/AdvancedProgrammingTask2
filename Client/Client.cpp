@@ -1,69 +1,52 @@
 #include "Client.h"
 
-string Client::SendMessage() {
-    string input = GetUserInput();
-    try {
-        if ((send(sock, input.c_str(), input.size() + 1, 0)) == ERROR) { // Send to client; add 1 for trailing 0
-            throw SendMessageException();
-        }
-        return input;
-    }
-    catch (SendMessageException &e) {
-        PrintError(e.what());
-        return "Error";
-    }
-}
-
-void Client::ReceiveMessage(char *buf, int size) {
-    try {
-        if ((recv(sock, buf, size, 0)) == ERROR) {
-            throw ReceiveMessageException();
-        }
-        cout << "Server: " << endl;
-    }
-    catch (ReceiveMessageException &e) {
-        PrintError(e.what());
-    }
-}
-
-void Client::OpenSocket() {
-    try {
-        sock = socket(AF_INET, SOCK_STREAM, 0);
-        cout << "Client socket has been created" << endl;
-        server_addr.sin_family = AF_INET;
-        server_addr.sin_port = htons(port);
-    }
-    catch (OpenSocketException &e) {
-        PrintError(e.what());
-    }
+Client::Client() {
+    socketAddress.sin_family = AF_INET;
+    socketAddress.sin_port = htons(PORT);
 }
 
 void Client::ConnectSocket() {
-    try {
-        if (connect(sock, (struct sockaddr *) &server_addr, sizeof(server_addr)) == ERROR) {
-            throw ConnectingToSocketException();
-        }
+    if (connect(socketRef, (struct sockaddr *) &socketAddress, sizeof(socketAddress)) == ERROR) {
+        cout << "Error connecting to socket" << endl;
+        exit(2);
     }
-    catch (ConnectingToSocketException &e) {
-        PrintError(e.what());
+    cout << "Connected via port number: " << PORT << endl;
+}
+
+string Client::SendMessage() {
+    string input = GetInput();
+    if (send(socketRef, input.c_str(), input.size() + 1, 0) == ERROR) {
+        cerr << "Error sending message" << endl;
+        exit(3);
+    }
+    return input;
+}
+
+void Client::ReceiveMessage(char *buffer, int size) {
+    if (recv(socketRef, buffer, size, 0) == ERROR) {
+        cout << "Error receiving message" << endl;
+        exit(4);
+    } else {
+        cout << "Server: " << endl;
     }
 }
 
 void Client::StartChat() {
-    do {
+    while (true) {
         string input = SendMessage();
-        char textInput[input.length() + 1];
-        strcpy(textInput, input.c_str());
-        if (EndChat(textInput)) {
-            CloseSocket();
+        char input_string[input.length() + 1];
+        strcpy(input_string, input.c_str());
+        if (Quit(input_string)) {
+            EndChat();
             break;
         }
-        char buf[BUF_SIZE];
-        ReceiveMessage(buf, BUF_SIZE);
-        cout << buf << endl;
-        if (EndChat(textInput)) {
-            CloseSocket();
+        char buffer[BUFFER_SIZE];
+        ReceiveMessage(buffer, BUFFER_SIZE);
+        cout << buffer << endl;
+        if (Quit(buffer)) {
+            EndChat();
             break;
         }
-    } while (true);
+    }
+    CloseSocket();
 }

@@ -79,22 +79,9 @@ Server/CMakeFiles/Server.dir/Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Server.dir/Client.cpp.s"
 	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Client.cpp -o CMakeFiles/Server.dir/Client.cpp.s
 
-Server/CMakeFiles/Server.dir/Comms.cpp.o: Server/CMakeFiles/Server.dir/flags.make
-Server/CMakeFiles/Server.dir/Comms.cpp.o: ../Server/Comms.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Server/CMakeFiles/Server.dir/Comms.cpp.o"
-	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Server.dir/Comms.cpp.o -c /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.cpp
-
-Server/CMakeFiles/Server.dir/Comms.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Server.dir/Comms.cpp.i"
-	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.cpp > CMakeFiles/Server.dir/Comms.cpp.i
-
-Server/CMakeFiles/Server.dir/Comms.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Server.dir/Comms.cpp.s"
-	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.cpp -o CMakeFiles/Server.dir/Comms.cpp.s
-
 Server/CMakeFiles/Server.dir/main.cpp.o: Server/CMakeFiles/Server.dir/flags.make
 Server/CMakeFiles/Server.dir/main.cpp.o: ../Server/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Server/CMakeFiles/Server.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Server/CMakeFiles/Server.dir/main.cpp.o"
 	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Server.dir/main.cpp.o -c /Users/lda49/Projects/AdvancedProgrammingTask2/Server/main.cpp
 
 Server/CMakeFiles/Server.dir/main.cpp.i: cmake_force
@@ -107,7 +94,7 @@ Server/CMakeFiles/Server.dir/main.cpp.s: cmake_force
 
 Server/CMakeFiles/Server.dir/Server.cpp.o: Server/CMakeFiles/Server.dir/flags.make
 Server/CMakeFiles/Server.dir/Server.cpp.o: ../Server/Server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Server/CMakeFiles/Server.dir/Server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Server/CMakeFiles/Server.dir/Server.cpp.o"
 	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Server.dir/Server.cpp.o -c /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Server.cpp
 
 Server/CMakeFiles/Server.dir/Server.cpp.i: cmake_force
@@ -118,20 +105,33 @@ Server/CMakeFiles/Server.dir/Server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Server.dir/Server.cpp.s"
 	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Server.cpp -o CMakeFiles/Server.dir/Server.cpp.s
 
+Server/CMakeFiles/Server.dir/Comms.cpp.o: Server/CMakeFiles/Server.dir/flags.make
+Server/CMakeFiles/Server.dir/Comms.cpp.o: ../Server/Comms.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Server/CMakeFiles/Server.dir/Comms.cpp.o"
+	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Server.dir/Comms.cpp.o -c /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.cpp
+
+Server/CMakeFiles/Server.dir/Comms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Server.dir/Comms.cpp.i"
+	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.cpp > CMakeFiles/Server.dir/Comms.cpp.i
+
+Server/CMakeFiles/Server.dir/Comms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Server.dir/Comms.cpp.s"
+	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Server && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.cpp -o CMakeFiles/Server.dir/Comms.cpp.s
+
 # Object files for target Server
 Server_OBJECTS = \
 "CMakeFiles/Server.dir/Client.cpp.o" \
-"CMakeFiles/Server.dir/Comms.cpp.o" \
 "CMakeFiles/Server.dir/main.cpp.o" \
-"CMakeFiles/Server.dir/Server.cpp.o"
+"CMakeFiles/Server.dir/Server.cpp.o" \
+"CMakeFiles/Server.dir/Comms.cpp.o"
 
 # External object files for target Server
 Server_EXTERNAL_OBJECTS =
 
 Server/Server: Server/CMakeFiles/Server.dir/Client.cpp.o
-Server/Server: Server/CMakeFiles/Server.dir/Comms.cpp.o
 Server/Server: Server/CMakeFiles/Server.dir/main.cpp.o
 Server/Server: Server/CMakeFiles/Server.dir/Server.cpp.o
+Server/Server: Server/CMakeFiles/Server.dir/Comms.cpp.o
 Server/Server: Server/CMakeFiles/Server.dir/build.make
 Server/Server: Server/CMakeFiles/Server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Server"
