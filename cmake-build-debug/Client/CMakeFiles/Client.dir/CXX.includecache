@@ -6,15 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Client.cpp
-Client.h
 /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Client.h
-
-/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Client.h
-Comms.h
-/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.h
-
-/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.cpp
 Comms.h
 /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.h
 
@@ -32,6 +24,14 @@ netinet/in.h
 cstdlib
 -
 unistd.h
+-
+Exception.h
+/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Exception.h
+
+/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Exception.h
+exception
+-
+string
 -
 
 /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Server.cpp

@@ -1,67 +1,102 @@
 #include "Server.h"
 
 Server::Server() {
-    socketAddress.sin_family = AF_INET;
-    socketAddress.sin_addr.s_addr = htons(INADDR_ANY);
-    socketAddress.sin_port = htons(PORT);
+    server_address.sin_family = AF_INET; // Domain address (IPv4)
+    server_address.sin_addr.s_addr = htons(INADDR_ANY); // Host IP Address
+    server_address.sin_port = htons(PORT); // Convert port number from host to network short
 }
 
 string Server::SendMessage() {
-    string input = GetInput();
-    if (send(clientSocket, input.c_str(), input.size() + 1, 0) == ERROR) {
-        cerr << "Error sending message" << endl;
+    string input = GetUserInput(); // Assign value returned from GetInput() function to string input variable
+    try {
+        if (send(server, input.c_str(), input.size() + 1, 0) ==
+            ERROR) { // If an attempt to send the message from the Server fails...
+            throw SendMessageException(); //...Throw exception
+        }
+    } catch (SendMessageException &e) { // Catch exception
+        PrintError(e.what()); // Print error
     }
-    return input;
+    return input; // Otherwise return input
 }
 
-void Server::ReceiveMessage(char *buf, int size) {
-    if (recv(clientSocket, buf, size, 0) == ERROR) {
-        cout << "Error receiving message" << endl;
-    } else {
-        cout << "Client: ";
+void Server::ReceiveMessage(char *buffer, int size) {
+    try {
+        if (recv(server, buffer, size, 0) == ERROR) { // If the server fails to receive the message...
+            throw ReceiveMessageException(); // ...Throw exception
+        } else {
+            cout
+                    << "Client: "; // Otherwise print out "Client" to indicate the next message has been received from the Client
+        }
+    }
+    catch (ReceiveMessageException &e) { // Catch exception
+        PrintError(e.what()); // Print error
     }
 }
 
 void Server::BindSocket() {
-    if (::bind(serverSocket, (struct sockaddr *) &socketAddress, sizeof(socketAddress)) == ERROR) {
-        cout << "Error binding connection, the socket has already been established..." << endl;
+    try {
+        if (::bind(client, (struct sockaddr *) &server_address, sizeof(server_address)) ==
+            ERROR) { // If there is a problem binding the socket to the address...
+            throw BindSocketException(); // ...Throw exception
+        }
+    } catch (BindSocketException &e) { // Catch exception
+        PrintError(e.what()); // Print error
     }
-    cout << "Socket bound" << endl;
+    cout << "Socket bound." << endl; // Otherwise confirm that binding was successful
 }
 
 void Server::ListenSocket() {
-    if(listen(serverSocket, SOMAXCONN) == ERROR) {
-        cout << "Error listening to port" << endl;
+    try {
+        if (listen(client, SOMAXCONN) == ERROR) { // Mark the socket for listening.  If there is an error...
+            cout << "Error listening to port" << endl; // ...Throw exception
+        }
     }
-    cout << "Listening on port: " << PORT << endl;
+    catch (ListenSocketException &e) {
+        PrintError(e.what());
+    }
+    cout << "Listening on port: " << PORT << endl << "Waiting for message from the Client..."
+         << endl; // Otherwise output message confirming that Server is listening on specific port (54000 in this case)
 }
 
 void Server::AcceptSocket() {
-    sockaddr_in sock{};
-    socklen_t clientSocketLength;
-    clientSocketLength = sizeof(sock);
-    clientSocket = accept(serverSocket, (sockaddr *) &sock, &clientSocketLength);
-    if (clientSocket == ERROR) {
-        cout << "Error accepting" << endl;
+    sockaddr_in client_address{}; // Instantiate structure for containing client IP address
+    socklen_t client_socket_length = sizeof(client_address); // Instantiate int for holding socket length
+    try {
+        server = accept(client, (sockaddr *) &client_address,
+                        &client_socket_length); // Try to establish connection with Client
+        if (server == ERROR) { // If unable to connect to Client...
+            throw AcceptSocketException(); // ...Throw exception
+        }
     }
+    catch (AcceptSocketException &e) {
+        PrintError(e.what());
+    }
+}
+
+string Server::GetUserInput() {
+    string input; // Instantiate string variable for storing input
+    cout << "Server: "; // Prompt user for input
+    getline(cin, input); // Store the next line in the input variable
+    return input; // Return input
 }
 
 void Server::StartChat() {
     while (true) {
-        char buf[BUF_SIZE];
-        ReceiveMessage(buf, BUF_SIZE);
-        cout << buf << endl;
-        if (Quit(buf)) {
-            EndChat();
+        char buffer[BUFFER_SIZE]; // Instantiate buffer array to a size of 1024
+        ReceiveMessage(buffer, BUFFER_SIZE); // Call the ReceiveMessage function with the message and size received
+        cout << buffer << endl; // Output message from buffer
+        if (Quit(buffer)) { // Check if user input is equal to "QUIT"
+            EndChat(); // If so, call EndChat function to output appropriate message
             break;
         }
-        string input = SendMessage();
-        char input_string[input.length() + 1];
-        strcpy(input_string, input.c_str());
-        if (Quit(input_string)) {
-            EndChat();
+        string input = SendMessage(); // Call SendMessage function using data returned by GetUserInput function
+        char input_string[input.length() +
+                          1]; // Instantiate input_string array, adding 1 to the length of text input as arrays are zero-indexed
+        strcpy(input_string, input.c_str()); // Use string copy function to copy input
+        if (Quit(input_string)) { // Check if user input is equal to "QUIT"
+            EndChat(); // If so, call EndChat function to output appropriate message
             break;
         }
     }
-    CloseSocket();
+    CloseSocket(); // Call CloseSocket function to close Client file descriptor}
 }

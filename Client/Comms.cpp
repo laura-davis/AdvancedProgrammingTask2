@@ -1,27 +1,31 @@
 #include "Comms.h"
 
 void Comms::OpenSocket() {
-    serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-    if (serverSocket == ERROR) {
-        cout << "error" << endl;
+    client = socket(AF_INET, SOCK_STREAM,
+                    0); // Socket function takes the address domain (IPv4), socket type (TCP) and protocol; system will choose default
+    try {
+        if (client == ERROR) { // If there is an error establishing connection...
+            throw OpenSocketException(); // ...Throw exception
+        }
+    }
+    catch (OpenSocketException &e) { // Catch exception
+        PrintError(e.what()); // Print error
     }
 }
 
 void Comms::CloseSocket() const {
-    close(serverSocket);
+    close(client); // Close client file descriptor
 }
 
-string Comms::GetInput() {
-    string input;
-    cout << "Your message: ";
-    getline(cin, input);
-    return input;
-}
-
-bool Comms::Quit(char* message) {
-    return strcmp(message, "QUIT") == 0;
+bool Comms::Quit(char *message) {
+    return strcmp(message, "QUIT") == 0; // Check if user has entered "QUIT"; if yes, return true
 }
 
 void Comms::EndChat() {
-        cout << "Connection between the client and server has been terminated" << endl;
+    cout << "Connection between the client and server has been terminated"
+         << endl; // Output message to indicate that the connection has been terminated
+}
+
+void Comms::PrintError(const string& error) {
+    cout << "Error: " << error << endl;
 }

@@ -79,9 +79,22 @@ Client/CMakeFiles/Client.dir/Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/Client.cpp.s"
 	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Client.cpp -o CMakeFiles/Client.dir/Client.cpp.s
 
+Client/CMakeFiles/Client.dir/Comms.cpp.o: Client/CMakeFiles/Client.dir/flags.make
+Client/CMakeFiles/Client.dir/Comms.cpp.o: ../Client/Comms.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Client/CMakeFiles/Client.dir/Comms.cpp.o"
+	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/Comms.cpp.o -c /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.cpp
+
+Client/CMakeFiles/Client.dir/Comms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/Comms.cpp.i"
+	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.cpp > CMakeFiles/Client.dir/Comms.cpp.i
+
+Client/CMakeFiles/Client.dir/Comms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/Comms.cpp.s"
+	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.cpp -o CMakeFiles/Client.dir/Comms.cpp.s
+
 Client/CMakeFiles/Client.dir/main.cpp.o: Client/CMakeFiles/Client.dir/flags.make
 Client/CMakeFiles/Client.dir/main.cpp.o: ../Client/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Client/CMakeFiles/Client.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Client/CMakeFiles/Client.dir/main.cpp.o"
 	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/main.cpp.o -c /Users/lda49/Projects/AdvancedProgrammingTask2/Client/main.cpp
 
 Client/CMakeFiles/Client.dir/main.cpp.i: cmake_force
@@ -94,7 +107,7 @@ Client/CMakeFiles/Client.dir/main.cpp.s: cmake_force
 
 Client/CMakeFiles/Client.dir/Server.cpp.o: Client/CMakeFiles/Client.dir/flags.make
 Client/CMakeFiles/Client.dir/Server.cpp.o: ../Client/Server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Client/CMakeFiles/Client.dir/Server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Client/CMakeFiles/Client.dir/Server.cpp.o"
 	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/Server.cpp.o -c /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Server.cpp
 
 Client/CMakeFiles/Client.dir/Server.cpp.i: cmake_force
@@ -105,33 +118,20 @@ Client/CMakeFiles/Client.dir/Server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/Server.cpp.s"
 	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Server.cpp -o CMakeFiles/Client.dir/Server.cpp.s
 
-Client/CMakeFiles/Client.dir/Comms.cpp.o: Client/CMakeFiles/Client.dir/flags.make
-Client/CMakeFiles/Client.dir/Comms.cpp.o: ../Client/Comms.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Client/CMakeFiles/Client.dir/Comms.cpp.o"
-	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Client.dir/Comms.cpp.o -c /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.cpp
-
-Client/CMakeFiles/Client.dir/Comms.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/Comms.cpp.i"
-	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.cpp > CMakeFiles/Client.dir/Comms.cpp.i
-
-Client/CMakeFiles/Client.dir/Comms.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/Comms.cpp.s"
-	cd /Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/Client && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.cpp -o CMakeFiles/Client.dir/Comms.cpp.s
-
 # Object files for target Client
 Client_OBJECTS = \
 "CMakeFiles/Client.dir/Client.cpp.o" \
+"CMakeFiles/Client.dir/Comms.cpp.o" \
 "CMakeFiles/Client.dir/main.cpp.o" \
-"CMakeFiles/Client.dir/Server.cpp.o" \
-"CMakeFiles/Client.dir/Comms.cpp.o"
+"CMakeFiles/Client.dir/Server.cpp.o"
 
 # External object files for target Client
 Client_EXTERNAL_OBJECTS =
 
 Client/Client: Client/CMakeFiles/Client.dir/Client.cpp.o
+Client/Client: Client/CMakeFiles/Client.dir/Comms.cpp.o
 Client/Client: Client/CMakeFiles/Client.dir/main.cpp.o
 Client/Client: Client/CMakeFiles/Client.dir/Server.cpp.o
-Client/Client: Client/CMakeFiles/Client.dir/Comms.cpp.o
 Client/Client: Client/CMakeFiles/Client.dir/build.make
 Client/Client: Client/CMakeFiles/Client.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/lda49/Projects/AdvancedProgrammingTask2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Client"

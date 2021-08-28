@@ -1,49 +1,74 @@
 #include "Client.h"
 
 Client::Client() {
-    socketAddress.sin_family = AF_INET;
-    socketAddress.sin_port = htons(PORT);
+    server_address.sin_family = AF_INET; // Use IPv4 domain
+    server_address.sin_port = htons(PORT); // Convert port number from host to network short
 }
 
 void Client::ConnectSocket() {
-    if (connect(serverSocket, (struct sockaddr *) &socketAddress, sizeof(socketAddress)) == ERROR) {
-        cout << "Error connecting to socket" << endl;
+    try {
+        if (connect(client, (struct sockaddr *) &server_address, sizeof(server_address)) ==
+            ERROR) { // If unable to connect to socket...
+            throw ConnectSocketException(); // ...Throw exception
+        }
     }
-    cout << "Connected via port number: " << PORT << endl;
+    catch (ConnectSocketException &e) { // Catch exception
+        PrintError(e.what()); // Print error
+    }
+    cout << "Connected via port number: " << PORT << endl; // ...Otherwise, output connection details
+}
+
+string Client::GetUserInput() {
+    string input; // Instantiate string variable for storing input
+        cout << "Client: "; // Prompt user for input
+        getline(cin, input); // Store the next line in the input variable
+    return input; // Return input
 }
 
 string Client::SendMessage() {
-    string input = GetInput();
-    if (send(serverSocket, input.c_str(), input.size() + 1, 0) == ERROR) {
-        cerr << "Error sending message" << endl;
+    string input = GetUserInput(); // Assign value returned from GetInput() function to string input variable
+    try {
+        if (send(client, input.c_str(), input.size() + 1, 0) ==
+            ERROR) { // If an attempt to send the message from the Client fails...
+            throw SendMessageException(); // ...Throw exception
+        }
     }
-    return input;
+    catch (SendMessageException &e) { // Catch exception
+        PrintError(e.what()); // Print error
+    }
+    return input; // Otherwise return input
 }
 
-void Client::ReceiveMessage(char *buf, int size) {
-    if (recv(serverSocket, buf, size, 0) == ERROR) {
-        cout << "Error receiving message" << endl;
-    } else {
-        cout << "Server: ";
+void Client::ReceiveMessage(char *buffer, int size) {
+    try {
+        if (recv(client, buffer, size, 0) == ERROR) { // If the client fails to receive the message...
+            throw ReceiveMessageException(); // ...Throw exception
+        } else {
+            cout << "Server: "; // Otherwise print out "Server" to indicate the next message has been received from the Server
+        }
+    }
+    catch (ReceiveMessageException &e) { // Catch exception
+        PrintError(e.what()); // Print error
     }
 }
 
 void Client::StartChat() {
     while (true) {
-        string input = SendMessage();
-        char input_string[input.length() + 1];
-        strcpy(input_string, input.c_str());
-        if (Quit(input_string)) {
-            EndChat();
+        string input = SendMessage(); // Call SendMessage function using data returned by GetUserInput function
+        char input_string[input.length() +
+                          1]; // Instantiate input_string array, adding 1 to the length of text input as arrays are zero-indexed
+        strcpy(input_string, input.c_str()); // Use string copy function to copy input
+        if (Quit(input_string)) { // Check if user input is equal to "QUIT"
+            EndChat(); // If so, call EndChat function to output appropriate message
             break;
         }
-        char buf[BUF_SIZE];
-        ReceiveMessage(buf, BUF_SIZE);
-        cout << buf << endl;
-        if (Quit(buf)) {
-            EndChat();
+        char buffer[BUFFER_SIZE]; // Instantiate buffer array to a size of 1024
+        ReceiveMessage(buffer, BUFFER_SIZE); // Call the ReceiveMessage function with the message and size received
+        cout << buffer << endl; // Output message from buffer
+        if (Quit(buffer)) { // Check if user input is equal to "QUIT"
+            EndChat(); // If so, call EndChat function to output appropriate message
             break;
         }
     }
-    CloseSocket();
+    CloseSocket(); // Call CloseSocket function to close Client file descriptor
 }

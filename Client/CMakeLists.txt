@@ -6,8 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(Client
         Client.cpp
         Client.h
+        Comms.cpp
         Comms.h
+        Exception.h
         main.cpp
         Server.cpp
         Server.h
-        Toggle.h Comms.cpp)
+        Toggle.h)

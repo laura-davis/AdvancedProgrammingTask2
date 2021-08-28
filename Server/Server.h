@@ -4,13 +4,14 @@
 
 class Server : public Comms {
 protected:
-    int clientSocket{};
+    int server{}; // Integer variable for the Server and its various calls
 public:
     Server();
-    string SendMessage() override;
-    void ReceiveMessage(char *buf, int size) override;
+    string SendMessage() override; // Override virtual method in Comms class
+    void ReceiveMessage(char *buffer, int size) override; // Override virtual method in Comms class
     void BindSocket();
     void ListenSocket();
     void AcceptSocket();
-    void StartChat() override;
+    string GetUserInput() override;
+    void StartChat() override; // Override virtual method in Comms class
 };

@@ -5,16 +5,20 @@ Client/CMakeFiles/Client.dir/Client.cpp.o
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Client.cpp
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Client.h
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.h
+ /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Exception.h
 Client/CMakeFiles/Client.dir/Comms.cpp.o
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.cpp
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.h
+ /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Exception.h
 Client/CMakeFiles/Client.dir/Server.cpp.o
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.h
+ /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Exception.h
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Server.cpp
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Server.h
 Client/CMakeFiles/Client.dir/main.cpp.o
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Client.h
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.h
+ /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Exception.h
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Server.h
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/Toggle.h
  /Users/lda49/Projects/AdvancedProgrammingTask2/Client/main.cpp

@@ -134,6 +134,9 @@
 		<Unit filename="/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Comms.h">
 			<Option target="Client"/>
 		</Unit>
+		<Unit filename="/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Exception.h">
+			<Option target="Client"/>
+		</Unit>
 		<Unit filename="/Users/lda49/Projects/AdvancedProgrammingTask2/Client/Server.cpp">
 			<Option target="Client"/>
 		</Unit>
@@ -156,6 +159,9 @@
 			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/Users/lda49/Projects/AdvancedProgrammingTask2/Server/Comms.h">
+			<Option target="Server"/>
+		</Unit>
+		<Unit filename="/Users/lda49/Projects/AdvancedProgrammingTask2/Server/Exception.h">
 			<Option target="Server"/>
 		</Unit>
 		<Unit filename="/Users/lda49/Projects/AdvancedProgrammingTask2/Server/Server.cpp">
